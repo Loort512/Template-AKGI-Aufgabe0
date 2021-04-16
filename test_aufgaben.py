@@ -102,11 +102,11 @@ class AufgabeTest(TestCase):
     def test_invert_text(self):
         result = aufgaben.invert_text("Zeichenkette")
         self.assertIsNotNone(result)
-        self.assertTrue(isinstance(result, list), "Result is not a string")
+        self.assertTrue(isinstance(result, str), "Result is not a string")
         self.assertEqual(result, "etteknehcieZ")
 
     def test_make_rotations(self):
         result = aufgaben.make_rotations("test")
         self.assertIsNotNone(result)
         self.assertTrue(isinstance(result, list), "Result is not a list")
-        self.assertListEqual(result, ["test", "estt", "stte", "estt"])
+        self.assertListEqual(result, ["test", "estt", "stte", "ttes"])
