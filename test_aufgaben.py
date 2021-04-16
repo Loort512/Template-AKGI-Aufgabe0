@@ -32,7 +32,7 @@ class AufgabeTest(TestCase):
 
     def test_remove_middle_element(self):
         result = aufgaben.remove_middle_element([[0,0,0], [0,0,0], [0,0,0]])
-        self.check_list(result, 3, 2)
+        self.check_list(result, 2, 3)
 
     def test_convert_to_dict(self):
         result = aufgaben.convert_to_dict([[0,0,0], [0,0,0], [0,0,0]])
@@ -41,6 +41,8 @@ class AufgabeTest(TestCase):
         self.assertEqual(len(result), 3, "Length of result was expected to be 3 but is " + str(len(result)))
         for i in result.keys():
             self.assertTrue(isinstance(i, str), "Key " + str(i) + " is not a string")
+            self.assertTrue(isinstance(result[i], list), "Value " + str(result[i]) + " (at key " + str(i) +
+                            ") is not an array")
             self.assertEqual(len(result[i]), 3,
                              "Length of element \"" + i + "\" of result was expected to be 3 but is " +
                              str(len(result[i])))
