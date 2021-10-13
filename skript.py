@@ -159,7 +159,9 @@ print("--!--".join(toprint))
 
 # Zum Formatieren von strings existiert eine Spezifikationssprache:
 # {} sind placeholder für Variablen
-print("Der Wert von y: {} minus den Wert von x: {} ist: {}".format(x, y, x-y))
+x = 12
+y = 4
+print("Der Wert von y: {} minus den Wert von x: {} ist: {}".format(y, x, y-x))
 
 # Mit {} können auch Positionen in der Argumentenliste angegeben werden:
 print("y: {1}, x: {0}".format(x, y))

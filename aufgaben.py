@@ -22,7 +22,7 @@ def remove_middle_element(mylist):
 
 # --- Aufgabe 2: Dictionaries ---
 
-# Erstellen Sie aus den Elementen der Liste myarray (ein 3x3-Array wie aus create_3x3_array) eine
+# Erstellen Sie aus den Elementen der Liste mylist (ein 3x3-Array wie aus create_3x3_array) eine
 # Dictionary, in der die einzelnen Elemente Schlüsseln zugewiesen sind,
 # die jeweils die Buchstaben (z.B. "a", "z" etc.)
 def convert_to_dict(mylist):
