@@ -195,9 +195,9 @@ else:
     print("Das kann nicht passieren.")
 print(y)
 
-# Funktioniert nicht wegen fehlender Einrückung:
-if y > 10:
-    print("y immer noch groesser 10")
+# Würde nicht funktionieren, wegen fehlender Einrückung:
+#if y > 10:
+#print("y immer noch groesser 10")
 
 # While tut das, was while halt so tut:
 y=10
