@@ -106,10 +106,10 @@ def invert_text(text):
     return result
 
 # Bauen Sie aus dem String text ein Array aller Rotationen. Beispiel:
-# text = "test", result = ["test", "estt", "stte", "estt"]
+# text = "test", result = ["test", "ttes", "stte", "estt"]
 #
 # Return an array containing all rotations of the text, e.g.
-# text = "test", result = ["test", "estt", "stte", "estt"]
+# text = "test", result = ["test", "ttes", "stte", "estt"]
 def make_rotations(text):
     result = None
     return result
