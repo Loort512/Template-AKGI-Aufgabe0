@@ -1,3 +1,5 @@
+import random
+
 # --- Aufgabe 1: Listen ---
 # --- Task 1: Lists ---
 
@@ -5,17 +7,39 @@
 #
 # Create a 3x3 list, in which all fields are filled with 0
 def create_3x3_list():
-    result = None # Hier None durch die richtige expression ersetzen
-    # Replace None in the above line by the correct expression
+    eintraege = 3
+    reihe = 3
+    result = [[0]*eintraege ]*reihe 
+    print(result)
     return result
-
 
 # Erstellen Sie eine 3x3-Liste, in der jede Zahl anders ist
 #
 # Create a 3x3 list where each number is different
 def create_3x3_list_different():
-    result = None # Hier None durch die richtige expression ersetzen
-    # Replace None in the above line by the correct expression
+    eintraege, reihe = (3, 3)
+
+    # Simple Array Result 0-8
+    #index = 0
+    #result = [[[] for i in range(eintraege)] for j in range(reihe)] 
+    #for i in range(reihe):
+    #    for j in range(eintraege):
+    #        result[i][j]  = index
+    #        index += 1
+
+    #print("simple array result: ", result)
+
+    result = [[[] for i in range(eintraege)] for j in range(reihe)] 
+    numset = set()
+    for i in range(reihe):
+        for j in range(eintraege):
+            num = random.randint(65,122)
+            while num in numset:
+                num = random.randint(65,122)
+
+            result[i][j] = num 
+            numset.add(result[i][j]) 
+
     return result
 
 
@@ -23,9 +47,8 @@ def create_3x3_list_different():
 #
 # mylist is a 3x3 list, like the one created by create_3x3_list_different(). Remove the middle element.
 def remove_middle_element(mylist):
-    result = mylist
-    # Hier Dinge tun
-    # Do things here
+    result = mylist[:0] + mylist[1:]  
+
     return result
 
 
@@ -41,9 +64,17 @@ def remove_middle_element(mylist):
 # a dictionary. In this dictionary, each of the values from mylist should be assigned to a key that is a string
 # (e.g. "a", "z" etc. - it does not matter which letters you choose)
 def convert_to_dict(mylist):
-    result = None
-    # Hier Dinge tun
-    # Do things here
+    #result = {item: chr(int(item)) for item in mylist} # bei 1D-Arrays
+    #result = {mylist[i][j]:  chr(int(mylist[i][j])) for i in range(3) for j in range(3)} # jedem Eintrag wird ein Buchstabe zugewiesen (bei gleichen Einträgen keine doppelten)
+
+    keys = ["a","b","c"] 
+    index = 0
+    result = dict()
+    for i in mylist:
+        tmpKey = keys[index] 
+        result.update({tmpKey: i})
+        index += 1
+
     return result
 
 
@@ -55,23 +86,25 @@ def convert_to_dict(mylist):
 #
 # Return the num-th character from text.
 def get_char(text, num):
-    result = None
+    result = text[num] 
     return result
 
+    
 
 # Das num-te Wort aus dem Satz sentence ausgeben.
 #
 # Return the num-th word from the sentence sentence (that consists of words separated by spaces).
 def get_word(sentence, num):
-    result = None
-    return result
+    result = sentence.split(' ')
+    return result[num] 
+
 
 
 # Alle Wörter aus dem Satz mit "--" getrennt anstatt mit " " getrennt zurückgeben.
 #
 # Return a new string in which the words from the sentence are separated with "--" instead of " "
 def join_by_dashes(sentence):
-    result = None
+    result = sentence.replace(" ", "--")
     return result
 
 
@@ -85,7 +118,7 @@ def join_by_dashes(sentence):
 #
 # Return an array that contains all the letters from text, e.g. text="test", result=["t", "e", "s", "t"]
 def text_to_array(text):
-    result = None
+    result = [char for char in text] 
     return result
 
 # Geben Sie ein Array zurück, das von den Buchstaben des Wortes jeden nur ein Mal enthält. Beispiel:
@@ -94,15 +127,21 @@ def text_to_array(text):
 # Return an array just like the one from text_to_array, but containing each unique letter only once,
 # e.g. text = "test", result = ["t", "e", "s"]. Hint: Remember the operator "in"
 def text_to_unique_array(text):
-    result = None
-    return result
+    #return list(set(text)) # Reihenfolge ist hier falsch beim test
+
+    unique = []
+    for char in text:
+        if char not in unique:
+            unique.append(char) 
+
+    return unique
 
 # Drehen Sie die Zeichen in text um. Beispiel:
 # text = "Zeichenkette", result="etteknehcieZ"
 #
 # Invert the text, e.g. text = "Zeichenkette", result="etteknehcieZ"
 def invert_text(text):
-    result = None
+    result = text[::-1] 
     return result
 
 # Bauen Sie aus dem String text ein Array aller Rotationen. Beispiel:
@@ -111,5 +150,8 @@ def invert_text(text):
 # Return an array containing all rotations of the text, e.g.
 # text = "test", result = ["test", "ttes", "stte", "estt"]
 def make_rotations(text):
-    result = None
+    result = []  
+    for i in range(len(text)):
+        currentString = text[i:] + text[:i]  
+        result.append(currentString)
     return result
